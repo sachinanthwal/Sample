@@ -1,0 +1,17 @@
+version:0.1
+phases:
+  pre_build:
+    commands:
+    - echo "Entered the pre-build stage"
+  build:
+    commands:
+    - echo "Entered the build stage"
+    - mvn clean prepare-package war:exploded
+  post_build:
+    commands:
+    - echo "Entered the post build stage"
+    - mv target/deploy ./
+artifacts:
+  files:
+    - deploye/**/*
+
